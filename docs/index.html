@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="heading">Feedback Manager</div>
+
+        <nav class="navbar">
+            <a href="index.html">Give Feedback</a>
+            <a href="feedback.html">View Feedback</a>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="section1">
+            <p class="para">Student Feedback</p>
+            <h1>Share Your Learning Experience</h1>
+            <p>Your feedback helps us understand your experience and improve the learning journey.</p>
+        </section>
+
+        <section class="section2">
+            <h2>Give Your Feedback</h2>
+
+            <form id="form">
+
+                <div class="feild">
+                    <label>Your Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="feild">
+                    <label>How would you rate your experience?</label>
+                    <div class="multipleOption">
+                        <label><input type="radio" name="rating" value="1"><span>1</span></label>
+                        <label><input type="radio" name="rating" value="2"><span>2</span></label>
+                        <label><input type="radio" name="rating" value="3"><span>3</span></label>
+                        <label><input type="radio" name="rating" value="4"><span>4</span></label>
+                        <label><input type="radio" name="rating" value="5"><span>5</span></label>
+                    </div>
+                </div>
+
+                <div class="feild">
+                    <label>Your Feedback</label>
+                    <textarea id="textarea" rows="5" placeholder="Tell us about your experience..." required></textarea>
+                </div>
+
+                <button class="submitBtn">Submit Feedback</button>
+            </form>
+
+            <p id="output"></p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

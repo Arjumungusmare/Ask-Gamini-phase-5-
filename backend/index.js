@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors(5501, 5000));
+app.use(cors());
 app.use(express.json());
 
 app.post("/api/ask", async (req, res) => {
@@ -19,8 +19,7 @@ app.post("/api/ask", async (req, res) => {
       });
     }
 
-    const response = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+    const response = await axios.post(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         contents: [
           {
@@ -33,15 +32,12 @@ app.post("/api/ask", async (req, res) => {
         ],
       }
     );
-    const answer =
-      response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
-      "No answer found.";
+    const answer = response.data.candidates?.[0]?.content?.parts?.[0]?.text || "No answer found.";
 
-    res.json({
-      output: answer,
-    });
+    res.json({output: answer,});
 
-  } catch (error) {
+  } 
+  catch (error) {
     console.error("Gemini Error:", error.response?.data || error.message);
 
     res.status(500).json({

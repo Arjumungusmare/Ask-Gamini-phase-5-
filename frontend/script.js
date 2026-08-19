@@ -22,7 +22,6 @@ button.addEventListener("click", async function () {
     });
 
     const data = await response.json();
-
     output.innerText = data.output || "No answer received.";
   }
 
